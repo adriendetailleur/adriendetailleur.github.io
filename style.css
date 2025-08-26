@@ -1,8 +1,15 @@
 html {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    color:dimgrey;
-    background-color: antiquewhite;
+    color:#1f2937;
+    background-color: #f8fafc;
+}
+
+main {
+    display: flex;
+    max-width: 800px;
+    margin: auto;
+    gap: 20px;
 }
 
 body {
@@ -12,39 +19,59 @@ body {
 }
 
 a {
-    color: brown;
+    color: #2563eb;
 }
 
 section {
-    background-color:burlywood;
+    background-color:#ffffff;
     padding: 5px 20px 10px 20px;
     margin: 10px 5px 20px 10px;
     border-radius: 10px;
+    box-shadow: 10px 5px 5px #e5e7eb;
 }
 
 article {
-  background-color: burlywood;
+  background-color: #ffffff;
   padding: 5px 20px 10px;
   margin: 10px 5px 20px 10px;
-  border-radius: 10px;
+  border-radius: 8px;
+  box-shadow: 10px 5px 5px #e5e7eb;
 }
 
 h1 {
     font-size: 2.5em;
+    color: #0f172a;
+    text-align: center;
 }
 
 h2 {
     font-size: 1.8em;
+    color: #0f172a;
 }
 
 h3 {
     font-size: 1.3em;
+    color: #0f172a;
 }
 
 footer {
     text-align: center;
-    background-color:bisque;
+    background-color:#e2e8f0;
     margin: 0 auto;
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
+}
+
+@media (max-width: 768px) { 
+    main {
+        flex-direction: column;
+    }
+}
+
+.left-column {
+    flex: 0 0 35%;
+}
+
+.right-column {
+    flex: 1;
 }
