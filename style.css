@@ -3,8 +3,12 @@ html {
     font-size: 16px;
     color:dimgrey;
     background-color: antiquewhite;
+}
+
+body {
     max-width: 800px;
     margin: 0 auto;
+    padding-inline: 0 16px;
 }
 
 a {
@@ -12,11 +16,17 @@ a {
 }
 
 section {
-    margin-top: 50px;
     background-color:burlywood;
     padding: 5px 20px 10px 20px;
     margin: 10px 5px 20px 10px;
     border-radius: 10px;
+}
+
+article {
+  background-color: burlywood;
+  padding: 5px 20px 10px;
+  margin: 10px 5px 20px 10px;
+  border-radius: 10px;
 }
 
 h1 {
@@ -34,7 +44,6 @@ h3 {
 footer {
     text-align: center;
     background-color:bisque;
-    max-width: 200px;
     margin: 0 auto;
     padding: 10px;
     border-radius: 10px;
