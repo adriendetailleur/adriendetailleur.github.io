@@ -1,77 +1,164 @@
-html {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    color:#1f2937;
-    background-color: #f8fafc;
+/* ==================================================
+   🎨 Thème & variables
+   ================================================== */
+:root {
+  --bg:       #ffffff;
+  --fg:       #121212;
+  --muted:    #6b7280;
+  --accent:   #2563eb;
+  --card:     #f5f7fb;
+  --border:   #e5e7eb;
+
+  --radius:   10px;
+  --shadow:   0 2px 8px rgba(0,0,0,.06);
 }
 
-main {
-    display: flex;
-    max-width: 800px;
-    margin: auto;
-    gap: 20px;
+html[data-theme="dark"] {
+  --bg:       #0b0f14;
+  --fg:       #e6edf3;
+  --muted:    #a6adbb;
+  --accent:   #7aa2ff;
+  --card:     #11161d;
+  --border:   #1f2937;
+}
+
+/* ==================================================
+   🌍 Global layout & resets
+   ================================================== */
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
 
 body {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-inline: 0 16px;
+  margin: 0 auto;
+  padding-inline: 0 16px;
+  max-width: 800px;
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
-a {
-    color: #2563eb;
+main {
+  display: flex;
+  margin: auto;
+  gap: 20px;
 }
 
-section {
-    background-color:#ffffff;
-    padding: 5px 20px 10px 20px;
-    margin: 10px 5px 20px 10px;
-    border-radius: 10px;
-    box-shadow: 10px 5px 5px #e5e7eb;
+.left-column { flex: 0 0 35%; }
+.right-column { flex: 1; }
+
+@media (max-width: 768px) { 
+  main { flex-direction: column; }
 }
 
-article {
-  background-color: #ffffff;
-  padding: 5px 20px 10px;
-  margin: 10px 5px 20px 10px;
-  border-radius: 8px;
-  box-shadow: 10px 5px 5px #e5e7eb;
-}
-
+/* ==================================================
+   📑 Typographie
+   ================================================== */
 h1 {
-    font-size: 2.5em;
-    color: #0f172a;
-    text-align: center;
+  font-size: 2.5em;
+  color: var(--fg);
+  text-align: center;
 }
 
 h2 {
-    font-size: 1.8em;
-    color: #0f172a;
+  font-size: 1.8em;
+  color: var(--fg);
 }
 
 h3 {
-    font-size: 1.3em;
-    color: #0f172a;
+  font-size: 1.3em;
+  color: var(--fg);
+}
+
+a {
+  color: var(--accent);
+}
+
+/* ==================================================
+   🧱 Sections / cartes
+   ================================================== */
+header, section, article, footer {
+  background-color: var(--card);
+  padding: 5px 20px 10px 20px;
+  margin: 10px 5px 20px 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 footer {
-    text-align: center;
-    background-color:#e2e8f0;
-    margin: 0 auto;
-    padding: 8px;
-    border-radius: 10px;
+  text-align: center;
+  padding-top: 12px;
 }
 
-@media (max-width: 768px) { 
-    main {
-        flex-direction: column;
-    }
+/* Transition des couleurs (thème clair/sombre) */
+body, header, section, article, footer, a {
+  transition: background-color .5s ease, color .5s ease;
 }
 
-.left-column {
-    flex: 0 0 35%;
+/* ==================================================
+   🌗 Switch thème
+   ================================================== */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-.right-column {
-    flex: 1;
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--border);
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+
+  background-image: url('turtle_icon.png');
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input:checked + .slider { background-color: var(--accent); }
+input:focus + .slider { box-shadow: 0 0 10px color-mix(in oklab, var(--accent) 40%, transparent); }
+input:checked + .slider:before { transform: translateX(26px); }
+
+.slider.round { border-radius: 34px; }
+.slider.round:before { border-radius: 50%; }
+
+/* ==================================================
+   📂 Expériences (afficher plus/moins)
+   ================================================== */
+.exp-details {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .3s ease;
+}
+
+.exp-toggle {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.exp-toggle[aria-expanded="true"]::after  { content: " ▲"; }
+.exp-toggle[aria-expanded="false"]::after { content: " ▼"; }
