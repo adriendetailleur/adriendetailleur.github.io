@@ -7,6 +7,14 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
+    <label class="switch" for="theme-toggle">
+      <input
+        type="checkbox"
+        id="theme-toggle"
+        aria-label="Changer de thème clair/sombre"
+      />
+      <span class="slider round"></span>
+    </label>
     <header>
       <h1>CV de Adrien</h1>
     </header>
@@ -33,16 +41,37 @@
           <article>
             <h3>Voyage au Laos</h3>
             <p>En <time datetime="2023">2023</time> pendant 2 mois</p>
+            <button
+              class="exp-toggle"
+              aria-expanded="false"
+              aria-controls="exp-laos"
+            >
+              Afficher plus
+            </button>
+            <div id="exp-laos" class="exp-details">
+              <p>
+                Ici ton contenu détaillé (quelques phrases, une liste, etc.).
+              </p>
+            </div>
           </article>
           <article>
             <h3>Voyage au Vietnam</h3>
-            <p>
-              <time datetime="2025">2025</time> - Avec Evan. Pour voir les
-              aventures, venez sur
-              <a href="https://www.polarsteps.com/AdrienDetailleur"
-                >Polarsteps</a
-              >
-            </p>
+            <p><time datetime="2025">2025</time> - Avec Evan.</p>
+            <button
+              class="exp-toggle"
+              aria-expanded="false"
+              aria-controls="exp-vietnam"
+            >
+              Afficher plus
+            </button>
+            <div id="exp-vietnam" class="exp-details">
+              <p>
+                Pour voir les aventures, venez sur
+                <a href="https://www.polarsteps.com/AdrienDetailleur"
+                  >Polarsteps</a
+                >
+              </p>
+            </div>
           </article>
         </section>
       </div>
@@ -51,5 +80,6 @@
     <footer>
       <a href="mailto:adridetailleur@gmail.com">Contactez-moi !</a>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
